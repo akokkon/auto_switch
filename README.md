@@ -73,7 +73,7 @@ Copy & paste the following six (6) lines in `auto_switch.desktop`
 [Desktop Entry]
 Type=Application
 Name=auto_switch-miner-akokkon
-Terminal=false
+Terminal=false 
 Exec=sudo lxterminal --geometry=106x42 -e /auto_switch/scripts/main.sh
 Icon=system-run
 X-GNOME-Autostart-enabled=true
