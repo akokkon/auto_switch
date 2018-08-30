@@ -91,7 +91,7 @@ step 1:
 
 step 2:
 
-Copy & paste the following six (6) lines in `auto_switch.desktop`
+Copy & paste the following seven (7) lines in `auto_switch.desktop`
 
 [Desktop Entry]
 
