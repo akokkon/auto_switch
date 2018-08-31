@@ -1,8 +1,11 @@
-#### `AUTO_SWITCH` switches automatically the HiveOS 2.0 miners to the most profitable coin accord to whattomine.com profitability calculations   
+#### `AUTO_SWITCH` switches automatically the HiveOS 2.0 miners to the most profitable coin 
+#### 			accord to whattomine.com profitability calculations   
 
-#### Version 0.5-2018/08/30 is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (`https://github.com/akokkon/auto_switch`)
+#### Version 0.5-2018/08/30 is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) 
+#### 				(`https://github.com/akokkon/auto_switch`)
 
-#### This `auto_switch` script is a fork of the `auto_switch for ethOS` by `allcrypto` (`https://github.com/allcrypto/auto_switch`)		  
+#### This `auto_switch` script is a fork of the `auto_switch for ethOS` by `allcrypto` 
+#### 			(`https://github.com/allcrypto/auto_switch`)		  
 
 ### Installation
 
