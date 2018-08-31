@@ -53,7 +53,7 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
      	poolname-RVN.conf = KMD
 
 
-####To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
+#### To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
 
 	a. Insert time in seconds for the next whattomine check-point 
 	
