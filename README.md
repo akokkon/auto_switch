@@ -4,7 +4,7 @@
 Version 0.5-2018/08/30 is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (`https://github.com/akokkon/auto_switch`)			  											  
 This `auto_switch` script is a fork of the `auto_switch for ethOS` by `allcrypto` (`https://github.com/allcrypto/auto_switch`)		  
 
-## Installation
+### Installation
 
 Run in HiveOS terminal:
 
@@ -53,7 +53,7 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
      	poolname-RVN.conf = KMD
 
 
-#### To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
+### To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
 
 	a. Insert time in seconds for the next whattomine check-point 
 	
@@ -66,14 +66,14 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
 	   Enter parameters about your setup, and then parse it according to what you're looking for ... So select your video cards, hashrate and power cost, click calculate, then copy the link and add ".json" after "coins" and you will get output based on what you fed into it.
 
 
-##### Logs
+### Logs
 
 After every coin auto_switch the miner-log is being copied to the `/logs/` folder. That way you can more easily track if a `config` file wasn't working.
 
 There's also a main log of the script itself which is written to `/scripts/log`
 
 
-###### Telegram notifications
+### Telegram notifications
 
 After every coin auto_switch you will be notified through the telegram bot you have start in this format:
 
@@ -84,19 +84,19 @@ To create your telegram-bot you can follow this guide: `https://tutorials.botsfl
 To get your `chatid` you have to open `https://telegram.me/myidbot` --> `open in web` and after authorization send `/getid`.
 
 
-####### To start auto-switch 
+### To start auto-switch 
 
 In terminal window run: 
 
 /auto_switch/scripts/main.sh
 
 
-######## To stop auto-switch
+### To stop auto-switch
 
 Close the terminal window in which run auto-switch 
 
 
-######### To auto-start auto-switch on HiveOS boot
+### To auto-start auto-switch on HiveOS boot
 
 step 1: 
 
@@ -127,7 +127,7 @@ step 3:
 press `ctrl+X` to save `auto_switch.desktop` and `Y` to confirm.
 
 
-######## Donations welcome
+### Donations welcome
 
 Consider sending us a cup of coffee, if you want to support further development of this script.
 
