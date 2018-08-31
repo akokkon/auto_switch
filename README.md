@@ -82,7 +82,17 @@ To create your telegram-bot you can follow this guide: `https://tutorials.botsfl
 To get your `chatid` you have to open `https://telegram.me/myidbot` --> `open in web` and after authorization send `/getid`.
 
 
-####### To run `auto-switch` on HiveOS booting process
+####### To start auto-switch 
+In terminal window run: 
+
+/auto_switch/scripts/main.sh
+
+
+######## To stop auto-switch
+Close the terminal window in which run auto-switch 
+
+
+######### To auto-start auto-switch on HiveOS boot
 step 1: 
 
 `cd /etc/xdg/autostart`
