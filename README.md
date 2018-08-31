@@ -83,12 +83,14 @@ To get your `chatid` you have to open `https://telegram.me/myidbot` --> `open in
 
 
 ####### To start auto-switch 
+
 In terminal window run: 
 
 /auto_switch/scripts/main.sh
 
 
 ######## To stop auto-switch
+
 Close the terminal window in which run auto-switch 
 
 
