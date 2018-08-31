@@ -67,12 +67,14 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
 
 
 ##### Logs
+
 After every coin auto_switch the miner-log is being copied to the `/logs/` folder. That way you can more easily track if a `config` file wasn't working.
 
 There's also a main log of the script itself which is written to `/scripts/log`
 
 
 ###### Telegram notifications
+
 After every coin auto_switch you will be notified through the telegram bot you have start in this format:
 
 `HiveOS switched to COIN_TAG (RPOFIT_PERCENT)` (e.g. `HiveOS switched to RVN (125%)`)
@@ -95,6 +97,7 @@ Close the terminal window in which run auto-switch
 
 
 ######### To auto-start auto-switch on HiveOS boot
+
 step 1: 
 
 `cd /etc/xdg/autostart`
