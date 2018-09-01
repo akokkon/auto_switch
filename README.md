@@ -1,4 +1,4 @@
-#### HiveOS 2.0 mining auto-switcher for NVIDIA GPUs
+### HiveOS 2.0 mining auto-switcher for NVIDIA GPUs
 
 Switches automatically the HiveOS 2.0 miners to the most profitable coin accord to whattomine.com profitability calculations   
 
