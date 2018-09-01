@@ -46,13 +46,13 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
 	
 	e. from `pcmanfm` open `nvidia-oc.conf` (path: `/hive-config/nvidia-oc.conf`)
 	
-	f. `save as` the `nvidia-oc.conf` file to the path `/auto_switch/overclockings` with filename: `poolname-ETH.conf` (e.g. dwarfpool-ETH.conf) *** I do not know about AMD GPUs and if there is -in the same way- an `amd-oc.conf` file to `save as` it to the `overclockings` folder ***
+	f. `save as` the `nvidia-oc.conf` file to the path `/auto_switch/overclockings` with filename: `poolname-ETH.conf` (e.g. dwarfpool-ETH.conf) 
 
 ** The script will automatically use the tag in the filename to apply the `config` for the specific coin.
 
-	e.g. poolname-ETH.conf = ETH
+	e.g. poolname-ETH.conf = ETH, poolname-RVN.conf = KMD
 	
-     	     poolname-RVN.conf = KMD
+** Note that we do not know about AMD GPUs and if there is -in the same way- an `amd-oc.conf` file to `save as` it to the `overclockings` folder
 
 
 ### To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
@@ -129,7 +129,7 @@ step 3:
 press `ctrl+X` to save `auto_switch.desktop` and `Y` to confirm.
 
 
-### Donation addresses
+### Donations
 
 BTC: `31hpDZyVTuPtMnJZhnF79sjDPUh25z7NLi`
 
