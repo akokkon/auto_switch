@@ -34,7 +34,7 @@ class auto_switch {
 
 			if(isset($data_coins['coins']) && count($data_coins['coins']) > 0) {		
 				$date = date('Y-m-d H:i:s');	
-				print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5 (by akokkon & kokkonos)\n");
+				print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5 \n");
 				print ("[$date] INFO : ===== Get-WTM-Profitability-List =====\n");
 				$flg = 0; $flg1 = 0;	
 				foreach($data_coins['coins'] as $label => $coin) {
