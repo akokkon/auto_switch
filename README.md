@@ -1,13 +1,12 @@
-#### AUTO_SWITCH tool for HiveOS
+#### HiveOS 2.0 mining auto-switcher for NVIDIA GPUs
 
-Switches automatically the HiveOS 2.0 miners to the most profitable coin accord to whattomine.com profitability calculation   
+Switches automatically the HiveOS 2.0 miners to the most profitable coin accord to whattomine.com profitability calculations   
 
-#### Version 0.5-2018/08/30
+#### Version 0.5 (2018-08-30)
 
-Is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (`https://github.com/akokkon/auto_switch`)
+Is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
 
-
-This `auto_switch` tool is a fork of the `auto_switch for ethOS` by `allcrypto` (`https://github.com/allcrypto/auto_switch`)		  
+This tool is a fork of the `auto_switch for ethOS` by `allcrypto` (https://github.com/allcrypto/auto_switch)		  
 
 ### Installation
 
@@ -43,19 +42,17 @@ Optional but strongly recommended is the installation of `leafpad` and `pcmanfm`
 	c. `edit` the 9th line of `wallet.conf` in this way: 
 	   MINER="insert_the_name_of_miner" (e.g. MINER="ethminer")
 	   
-	d. `save as` the `wallet.conf` file to the path `/auto_switch/configs` with filename in this format: `poolname-TAG_OF_COIN.conf` (e.g. dwarfpool-ETH.conf)
+	d. `save as` the `wallet.conf` file to the path `/auto_switch/configs` with filename in this format: `poolname-TAG_OF_COIN.conf` (e.g. dwarfpool-ETH.conf); for nicehash you have to follow this format: `poolname-TAG_OF_ALGO.conf` (daggerhashimoto-NICEHASH.conf and then daggerhashimoto-ETHASH.conf or daggerhashimoto-EQUIHASH.conf or daggerhashimoto-NeoScrypt.conf ...)
 	
-	e. for nicehash you have to follow this format: `poolname-TAG_OF_ALGO.conf` (daggerhashimoto-NICEHASH.conf and then daggerhashimoto-ETHASH.conf or daggerhashimoto-EQUIHASH.conf or daggerhashimoto-NeoScrypt.conf ...)
+	e. from `pcmanfm` open `nvidia-oc.conf` (path: `/hive-config/nvidia-oc.conf`)
 	
-	f. from `pcmanfm` open `nvidia-oc.conf` (path: `/hive-config/nvidia-oc.conf`)
-	
-	g. `save as` the `nvidia-oc.conf` file to the path `/auto_switch/overclockings` with filename: `poolname-ETH.conf` (e.g. dwarfpool-ETH.conf) *** I do not know about AMD GPUs and if there is -in the same way- an `amd-oc.conf` file to `save as` it to the `overclockings` folder ***
+	f. `save as` the `nvidia-oc.conf` file to the path `/auto_switch/overclockings` with filename: `poolname-ETH.conf` (e.g. dwarfpool-ETH.conf) *** I do not know about AMD GPUs and if there is -in the same way- an `amd-oc.conf` file to `save as` it to the `overclockings` folder ***
 
 ** The script will automatically use the tag in the filename to apply the `config` for the specific coin.
 
 	e.g. poolname-ETH.conf = ETH
 	
-     	poolname-RVN.conf = KMD
+     	     poolname-RVN.conf = KMD
 
 
 ### To define your personal settings for auto_switching -to `/scripts/` folder- in `config.php` file:
@@ -113,28 +110,26 @@ step 2:
 
 Copy & paste the following seven (7) lines in `auto_switch.desktop`
 
-[Desktop Entry]
+	[Desktop Entry]
 
-Type=Application
+	Type=Application
 
-Name=auto_switch-miner-akokkon
+	Name=auto_switch-miner-akokkon
 
-Terminal=false 
+	Terminal=false 
 
-Exec=sudo lxterminal --geometry=106x42 -e /auto_switch/scripts/main.sh
+	Exec=sudo lxterminal --geometry=106x42 -e /auto_switch/scripts/main.sh
 
-Icon=system-run
+	Icon=system-run
 
-X-GNOME-Autostart-enabled=true
+	X-GNOME-Autostart-enabled=true
 
 step 3: 
 
 press `ctrl+X` to save `auto_switch.desktop` and `Y` to confirm.
 
 
-### Donations welcome
-
-Consider sending us a cup of coffee, if you want to support further development of this script.
+### Donation addresses
 
 BTC: `31hpDZyVTuPtMnJZhnF79sjDPUh25z7NLi`
 
