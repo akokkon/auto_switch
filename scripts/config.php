@@ -1,5 +1,5 @@
 <?php
-	/////// Debugging mode `true` OR `false` - print `whattomine.com` Coin Profitability List	
+	/////// Debugging mode `true` OR `false` - if `true` system prints `whattomine.com` Coin Profitability List	
 	$DEBUG = "false";	
 
 	/////// HiveOS farm and worker name
