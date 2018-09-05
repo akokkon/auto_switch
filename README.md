@@ -2,6 +2,12 @@
 
 Switches automatically the HiveOS 2.0 miners to the most profitable coin accord to whattomine.com profitability calculations   
 
+#### Version 0.5.2 (2018-09-05)
+
+- minor changes to config.php file (farm & worker variables added)
+
+- different way to present the statistics in terminal
+
 #### Version 0.5 (2018-08-30)
 
 Is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
