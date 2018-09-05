@@ -4,13 +4,15 @@ Switches automatically the HiveOS 2.0 miners to the most profitable coin accord 
 
 #### Version 0.5.2 (2018-09-05)
 
+Developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
+
 - minor changes to config.php file (farm & worker variables added)
 
 - different way to present the statistics in terminal
 
 #### Version 0.5 (2018-08-30)
 
-Is developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
+Developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
 
 This tool is a fork of the `auto_switch for ethOS` by `allcrypto` (https://github.com/allcrypto/auto_switch)		  
 
