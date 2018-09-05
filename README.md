@@ -6,7 +6,7 @@ Switches automatically the HiveOS 2.0 miners to the most profitable coin accord 
 
 Developed by Dim.Kokkonos (kokkonos) & Ant.Kokkonos (akokkon) (https://github.com/akokkon/auto_switch)
 
-- minor changes to config.php file (farm & worker variables added)
+- minor changes in config.php file (farm & worker variables added)
 
 - different way to present the statistics in terminal
 
