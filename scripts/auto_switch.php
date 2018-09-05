@@ -40,7 +40,7 @@ class auto_switch {
 
 			if(isset($data_coins['coins']) && count($data_coins['coins']) > 0) {		
 				$date = date('Y-m-d H:i:s');	
-				//print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5.1 \n");
+
 				if ($debug == "true") {
 					print ("[$date] INFO : ===== Get-WTM-Profitability-List ===== \n");
 					}
