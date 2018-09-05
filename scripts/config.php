@@ -1,9 +1,13 @@
 <?php
-	///////// Run HIVE-overclock after config switch
-	define('RUN_HIVE_OVERCLOCK', FALSE); 
-	
-	//////// Time in seconds for the next WTM check-point (e.g. 240)
-	$SLEEP = 240;
+	/////// Debugging mode `true` OR `false` - print `whattomine.com` Coin Profitability List	
+	$DEBUG = "false";	
+
+	/////// HiveOS farm and worker name
+	$FARM = "INSERT_HERE_YOUR_FARM_NAME";
+	$WORKER = "INSERT_HERE_YOUR_WORKER_NAME";
+
+	//////// Time in seconds for the next WTM check-point
+	$SLEEP = 300;
 
  	/////// Telegram notification-bot settings
 	$CHATID = "INSERT_HERE_YOUR_CHATID";
@@ -15,6 +19,9 @@
 
 	/////// Define the greater profit percentage for autoswitching
 	$GREATERPROFIT = 10;
+
+	///////// Run HIVE-overclock after config switch
+	define('RUN_HIVE_OVERCLOCK', FALSE); 
 
 	/////// API URL for looking up current prices
 	/////// Do not forget to add `.json` after `/coins` in the next line)

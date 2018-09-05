@@ -1,11 +1,17 @@
 <?php
 	require('config.php');
+	$farm = $FARM;
+	$worker = $WORKER;
 	$sleep = $SLEEP;
 	$greaterprofit = $GREATERPROFIT;
 	$chatid = $CHATID;
 	$key = $KEY;
 	$time = $TIME;
 	$url = $URL;
+	$debug = $DEBUG;
+	$date = date('Y-m-d H:i:s');
+	
+	print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5.2 \n");
 
 class auto_switch {
 		public $run_hive_overclock = FALSE;
@@ -27,15 +33,17 @@ class auto_switch {
 		}
 		
 		private function profit_switch() { 	
-			global $sleep; global $most_profit_percent; global $most_profit_algo; global $current_coin_tag; global $current_coin_percent;
+			global $debug; global $farm; global $worker; global $sleep; global $most_profit_percent; global $most_profit_algo; global $current_coin_tag; global $current_coin_percent;
 			$json_coins = file_get_contents($this->wtm_api_url); //');
 			$data_coins = json_decode($json_coins, true);
 			$profits = FALSE;
 
 			if(isset($data_coins['coins']) && count($data_coins['coins']) > 0) {		
 				$date = date('Y-m-d H:i:s');	
-				print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5 \n");
-				print ("[$date] INFO : ===== Get-WTM-Profitability-List =====\n");
+				//print ("[$date] INFO : HiveOS 2.0 mining auto-switcher for NVIDIA GPUs V0.5.1 \n");
+				if ($debug == "true") {
+					print ("[$date] INFO : ===== Get-WTM-Profitability-List ===== \n");
+					}
 				$flg = 0; $flg1 = 0;	
 				foreach($data_coins['coins'] as $label => $coin) {
 					if(!isset($this->coins[$coin['tag']]))
@@ -66,7 +74,10 @@ class auto_switch {
 					}
 				
 				// Print WTM-Profitability-List
-				print ("                             * $profits[$tag]% $tag ($coin_algo) \n");
+				if ($debug == "true") {
+					print ("                             * $profits[$tag]% $tag ($coin_algo) \n");
+
+					}
 				}
 			}
 			$current_coin = file_get_contents($this->home_path.'scripts/current_coin.txt');
@@ -91,8 +102,12 @@ class auto_switch {
 					
 					} 
 				}
-			print ("[$date] INFO : HiveOS is mining ***** $current_coin $current_coin_percent% ***** \n");
-			print ("[$date] INFO : Next whattomine.com check-point after $sleep secs ...\n");
+			print ("[$date] INFO : ===== Get-Current-Stats ===== \n");
+			print ("[$date] INFO : Farm-Name            : $farm\n");
+			print ("[$date] INFO : Worker-Name          : $worker\n");
+			print ("[$date] INFO : WTM Check-Period     : $sleep secs \n");
+			print ("[$date] INFO : Current-Coin         : $current_coin ($current_coin_percent%)\n");
+	
 			if($profits && count($profits) > 0) {				
 				// Sort by profit (reverse)
 				global $new_profit;
@@ -102,8 +117,8 @@ class auto_switch {
 				if($this->switch_coin($new_coin)) {
 					global $chatid; global $key; global $url; global $time;
 					// Telegram bot notifications
-					$text = ("HiveOS switched to $new_coin ($new_profit%)");
-					$this->write_log(date('Y-m-d H:i:s')." - HiveOS auto-switched to $new_coin ($new_profit%)\r\n");
+					$text = ("$farm: $worker switched to $new_coin ($new_profit%)");
+					$this->write_log(date('Y-m-d H:i:s')." - $farm: $worker auto-switched to $new_coin ($new_profit%)\r\n");
 					shell_exec('curl -s --max-time ' .$time. ' -d "chat_id=' .$chatid. '&disable_web_page_preview=1&text=' .$text. '" ' .$url. ' >/dev/null 2>&1');
 					
 					sleep(1); 
@@ -127,7 +142,6 @@ class auto_switch {
 				if(strpos($tag, '.'))
 					$tag = substr($tag, 0, strpos($tag, '.'));
 					$this->coins[strtoupper($tag)] = array('config' => $filename, 'folder_path' => '');
-				//print ("\n $tag $filename \n");
 			}
 		}
 
@@ -138,15 +152,16 @@ class auto_switch {
 			
 		private function switch_coin($new_coin) {
 			if(file_exists($this->home_path.'scripts/current_coin.txt')) {
-				global $current_coin_percent; global $sleep; global $greaterprofit; global $new_profit; $date = date('Y-m-d H:i:s');
+				global $current_coin_percent; global $sleep; global $farm; global $worker; global $greaterprofit; global $new_profit; $date = date('Y-m-d H:i:s');
 				// Coin already active? Nothing to do..
 				$current_coin = file_get_contents($this->home_path.'scripts/current_coin.txt');
 
 				if(($new_coin == $current_coin) OR ($new_profit < $current_coin_percent+$greaterprofit)) {
-					print ("[$date] INFO : Until then, HiveOS will continue mining the same coin ... \n\n");
+					print ("[$date] INFO : Most-Profitable-Coin : $new_coin ($new_profit%) \n");
+					print ("[$date] INFO : $worker continues mining \e[36m**** $current_coin ($current_coin_percent%) **** \e[0m\n\n");
 					return FALSE;
 				}
-
+				print ("[$date] INFO : Most-Profitable-Coin : $new_coin ($new_profit%) \n");
 				// Log mining output from previous mining
 				copy('/run/hive/miner.1', $this->home_path.'logs/'.$current_coin.'.log');
 			}
@@ -174,25 +189,25 @@ class auto_switch {
 				$config_file = $this->coins[$new_coin]['config'];
 			}
 			copy($this->home_path."configs/".$config_file, $this->hive_path.'wallet.conf');
-			print ("[$date] INFO : HiveOS applied -$config_file- settings to -wallet.conf-\n");
+			print ("[$date] INFO : Applied -$config_file- to -wallet.conf-\n");
 			sleep(1);
 			copy($this->home_path."overclockings/".$config_file, $this->hive_path.'nvidia-oc.conf');
-			print ("[$date] INFO : HiveOS applied -$config_file- settings to -nVidia-oc.conf- \n");
+			print ("[$date] INFO : Applied -$config_file- to -nVidia-oc.conf- \n");
 			sleep(1);
 			$output = shell_exec('/hive/bin/miner stop');
 			sleep(1);
-			$this->output("[$date] INFO : HiveOS is $output");
+			$this->output("[$date] INFO : $output \e[1A");
 			shell_exec('/hive/sbin/nvidia-oc');
 			sleep(1);
-			print ("[$date] INFO : HiveOS applied -$config_file- OC settings to GPUs \n");
+			print ("[$date] INFO : Applied -$config_file- OC to GPUs \n");
 			$output = shell_exec('/hive/bin/miner start');
                         sleep(1);
-			$this->output("[$date] INFO : HiveOS is $output");
+			$this->output("[$date] INFO : $output \e[1A");
 			if($this->run_hive_overclock) {
 				shell_exec('/hive/sbin/nvidia-oc-log'); 
-				$this->output("[$date] INFO : HiveOS applied -$config_file- OC settings to -nVidia-oc.conf- \n");
+				$this->output("[$date] INFO : Applied -$config_file- OC to -nVidia-oc.conf- \n");
 			}
-				$this->output("[$date] INFO : HiveOS auto-switched to **** $new_coin $new_profit% **** \n");
+				$this->output("[$date] INFO : $worker auto-switched to \e[32m**** $new_coin $new_profit% **** \e[0m\n");
 
 			return TRUE;
 		}
@@ -226,5 +241,6 @@ class auto_switch {
 		$date = date('Y-m-d H:i:s');
 		sleep($sleep);
 	} 
-	while ($flg3 > 0);	
+	while ($flg3 > 0);
+	
 ?>
